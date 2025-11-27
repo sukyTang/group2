@@ -1,5 +1,12 @@
+/*
+Functions need to add: 
+Show a hidden page when you press sign up button that shows input where you can put in email and availble date?
+Inputable testimony, an in-class activity that people can participate in
+*/
+
 const homeBtn = document.getElementById('homeBtn');
 const startBtn = document.getElementById('startBtn');
+const disBtn = document.getElementById('disclaimerBtn');
 
 const agenda = document.getElementsByClassName('agenda');
 const resources = document.getElementsByClassName('resources');
@@ -27,6 +34,14 @@ document.addEventListener('DOMContentLoaded', () => {
       page.style.display = 'none';
     }
   }
+
+  startBtn?.addEventListener('click', (e) => {
+    goToPage('workshop');
+  });
+
+  disBtn?.addEventListener('click', (e) => {
+    goToPage('disclaimer');
+  });
 
   homeBtn?.addEventListener('click', (e) => {
     goToPage('home');
