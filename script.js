@@ -126,6 +126,11 @@ function goToPage(page) {
   }
 }
 
+function setTimer() {
+  // Set the date we're counting down to
+  var countDownDate = new Date("Jan 5, 2030 15:37:25").getTime();
+}
+
 function scrollFunction() {
   // console.log(topBtn);
   // https://stackoverflow.com/questions/70240526/how-to-prevent-scroll-to-top-button-from-going-over-the-footer
