@@ -51,6 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < agenda.length; i++) {
     agenda[i]?.addEventListener('click', (e) => {
       goToPage('agenda');
+
+      const href = agenda[i].getAttribute('href');
+      if (href && href.startsWith('#') && href.length > 1) {
+        setTimeout(() => {
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
     });
   }
 

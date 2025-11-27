@@ -55,12 +55,18 @@ a {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   background: linear-gradient(180deg, rgba(15, 17, 21, .95), rgba(15, 17, 21, .85));
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(6px);
+}
+
+body {
+  padding-top: 80px;
 }
 
 .header-inner {
@@ -303,4 +309,12 @@ textarea {
   .nav {
     display: none;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:target {
+  scroll-margin-top: 100px;
 }
