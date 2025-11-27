@@ -16,7 +16,7 @@ const topBtn = document.getElementsByClassName('toTop');
 
 const navigation = document.getElementsByClassName('page');
 
-window.onscroll = function() {
+window.onscroll = function () {
   scrollFunction()
 };
 
@@ -35,9 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  startBtn?.addEventListener('click', (e) => {
+  /* startBtn?.addEventListener('click', (e) => {
     goToPage('workshop');
-  });
+  }); */
 
   disBtn?.addEventListener('click', (e) => {
     goToPage('disclaimer');
@@ -46,33 +46,33 @@ document.addEventListener('DOMContentLoaded', () => {
   homeBtn?.addEventListener('click', (e) => {
     goToPage('home');
   });
-  
+
   // For everything in agenda and agenda drop-down, make it a button to go to agenda page
   for (let i = 0; i < agenda.length; i++) {
     agenda[i]?.addEventListener('click', (e) => {
-    goToPage('agenda');
-  });
+      goToPage('agenda');
+    });
   }
 
   // for all buttons in resources dropdown and resource button, attach event listener to go ro resources page
   for (let i = 0; i < resources.length; i++) {
     resources[i]?.addEventListener('click', (e) => {
-    goToPage('resources');
-  });
+      goToPage('resources');
+    });
   }
   /* resBtn?.addEventListener('click', (e) => {
     goToPage('resources');
   }); */
   for (let i = 0; i < about.length; i++) {
     about[i]?.addEventListener('click', (e) => {
-    goToPage('about');
-  });
+      goToPage('about');
+    });
   }
-  
+
   // # quiz
   const quizForm = document.getElementById('quizForm');
   const quizResult = document.getElementById('quizResult');
-  const answerKey = { q1:'B', q2:'A', q3:'B', q4:'C', q5:'B' };
+  const answerKey = { q1: 'B', q2: 'A', q3: 'B', q4: 'C', q5: 'B' };
   // submit quiz button
   quizForm?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -114,7 +114,7 @@ function goToPage(page) {
     let pageDiv = navigation[i];
     let pageName = pageDiv.id;
     //console.log("Page name: "+pageName+"; Page: "+pageDiv);
-    
+
     if (pageName == page) {
       pageDiv.style.display = 'block';
       //console.log("shown"+page);
