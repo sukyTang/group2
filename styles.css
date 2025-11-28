@@ -305,6 +305,10 @@ textarea {
   transform: translateY(0);
 }
 
+.linkedinLogo {
+  max-height: 15px;
+}
+
 @media (max-width: 560px) {
   .nav {
     display: none;
