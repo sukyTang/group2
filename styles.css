@@ -212,6 +212,28 @@ body {
   margin-top: .2rem;
 }
 
+.slideShow {
+  display: inline-flex;
+}
+
+.prev, .next {
+  transform:translateY(50%);
+  cursor: pointer;
+  width: auto;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  margin: 10px;
+}
+
+.next {
+  text-align: right;
+}
+
+
 .scenario {
   background: #10131a;
   border: 1px solid var(--border);

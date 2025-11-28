@@ -5,7 +5,6 @@ Inputable testimony, an in-class activity that people can participate in
 */
 
 const homeBtn = document.getElementById('homeBtn');
-const startBtn = document.getElementById('startBtn');
 const disBtn = document.getElementById('disclaimerBtn');
 
 const agenda = document.getElementsByClassName('agenda');
@@ -15,6 +14,9 @@ const about = document.getElementsByClassName('about');
 const topBtn = document.getElementsByClassName('toTop');
 
 const navigation = document.getElementsByClassName('page');
+
+const slides = document.getElementsByClassName('slideShow');
+var slideNums = [0,0,0,0,0];
 
 window.onscroll = function () {
   scrollFunction()
@@ -35,10 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* startBtn?.addEventListener('click', (e) => {
-    goToPage('workshop');
-  }); */
-
   disBtn?.addEventListener('click', (e) => {
     goToPage('disclaimer');
   });
@@ -46,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
   homeBtn?.addEventListener('click', (e) => {
     goToPage('home');
   });
+
+  for (let i = 0; i < slides.length; i++) {
+    // console.log(slides[i].getElementsByClassName('slide'));
+    gotoSlide(slides[i],slideNums[i]);
+  }
 
   // For everything in agenda and agenda drop-down, make it a button to go to agenda page
   for (let i = 0; i < agenda.length; i++) {
@@ -65,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // for all buttons in resources dropdown and resource button, attach event listener to go ro resources page
+  // for all buttons in resources dropdown and resource button, attach event listener to go to resources page
   for (let i = 0; i < resources.length; i++) {
     resources[i]?.addEventListener('click', (e) => {
       goToPage('resources');
@@ -140,6 +143,23 @@ function goToPage(page) {
 function setTimer() {
   // Set the date we're counting down to
   var countDownDate = new Date();
+}
+
+function slideShowBtn() {
+  // gives the 'prev' and 'next' buttons in a slideshow actions
+}
+
+function gotoSlide(slideShow, slide) {
+  // hides the slide if it's not the current slide
+  var mySlides = slideShow.getElementsByClassName('slide');
+  for (i = 0; i < mySlides.length; i++) {
+    if (mySlides[i].id == slide) {
+      mySlides[i].style.display = 'block';
+    }
+    else {
+      mySlides[i].style.display = 'none';
+    }
+  }
 }
 
 function scrollFunction() {
