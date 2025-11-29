@@ -31,8 +31,8 @@ a {
   color: inherit;
 }
 
-.hero.home {
-  background: url("https://cssanimation.io/blog/wp-content/uploads/2023/09/Teamwork-And-Collaboration-How-To-Improve-Both-At-Work-1.jpg"), rgba(0, 0, 0, 0.7);
+.hero {
+  background: url("./images/teamwork.jpg"), rgba(0, 0, 0, 0.7);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,7 +41,7 @@ a {
 }
 
 .hero.agenda {
-  background: url("https://www.knowledgetrain.co.uk/training-courses/project-scheduling-1903x1087-1.jpg"), rgba(0, 0, 0, 0.7);
+  background: url("./images/scheduling.jpg"), rgba(0, 0, 0, 0.7);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -342,7 +342,7 @@ textarea {
 }
 
 .linkedinLogo {
-  max-height: 15px;
+  max-width: 15px;
 }
 
 @media (max-width: 560px) {
