@@ -9,6 +9,7 @@ const disBtn = document.getElementById('disclaimerBtn');
 
 const popupBtn = document.getElementById('popUP');
 const popupDiv = document.getElementById('popup');
+const exitPopup = document.getElementById('exit');
 
 const agenda = document.getElementsByClassName('agenda');
 const resources = document.getElementsByClassName('resources');
@@ -48,7 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
     goToPage('home');
   });
 
-  popupBtn?.addEventListener('click', showPopup);
+  popupBtn.addEventListener('click', showPopup);
+  exitPopup.addEventListener('click', (e) => {
+    popupDiv.style.visibility='hidden';
+  })
 
   for (let i = 0; i < slides.length; i++) {
     // console.log(slides[i].getElementsByClassName('slide'));
