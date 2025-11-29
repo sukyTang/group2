@@ -16,6 +16,17 @@ button {
   all: inherit;
 }
 
+#popup {
+  visibility: hidden;
+  z-index: 20;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  right:0;
+}
+
 html,
 body {
   height: 100%;
@@ -59,7 +70,7 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 10;
   background: linear-gradient(180deg, rgba(15, 17, 21, .95), rgba(15, 17, 21, .85));
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(6px);
@@ -357,4 +368,39 @@ html {
 
 :target {
   scroll-margin-top: 100px;
+}
+
+.signup-container {
+  max-width: 350px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
 }

@@ -7,6 +7,9 @@ Inputable testimony, an in-class activity that people can participate in
 const homeBtn = document.getElementById('homeBtn');
 const disBtn = document.getElementById('disclaimerBtn');
 
+const popupBtn = document.getElementById('popUP');
+const popupDiv = document.getElementById('popup');
+
 const agenda = document.getElementsByClassName('agenda');
 const resources = document.getElementsByClassName('resources');
 const about = document.getElementsByClassName('about');
@@ -44,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
   homeBtn?.addEventListener('click', (e) => {
     goToPage('home');
   });
+
+  popupBtn?.addEventListener('click', showPopup);
 
   for (let i = 0; i < slides.length; i++) {
     // console.log(slides[i].getElementsByClassName('slide'));
@@ -183,14 +188,46 @@ function gotoSlide(slideShow, slide) {
     if (mySlides[i].id == slide) {
       slideId = i;
       mySlides[i].style.display = 'block';
-      dots[i].style.opacity = '50%';
+      dots[i].style.opacity = '100%';
     }
     else {
       mySlides[i].style.display = 'none';
-      dots[i].style.opacity = '100%'
+      dots[i].style.opacity = '30%'
     }
   }
 }
+
+function showPopup() {
+  // console.log('showpopup');
+  
+  document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
+  popupDiv.style.visibility = 'visible';
+}
+
+const signupForm = document.getElementById('signupForm');
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    organization: document.getElementById('organization').value,
+    session: document.getElementById('session').value,
+    timestamp: new Date().toISOString()
+  };
+
+  // Get existing registrations or initialize empty array
+  const registrations = JSON.parse(localStorage.getItem('workshopRegistrations') || '[]');
+  registrations.push(formData);
+
+  // Save back to localStorage
+  localStorage.setItem('workshopRegistrations', JSON.stringify(registrations));
+
+  document.getElementsByTagName('body')[0].style.overflowY = 'visible';
+  alert('Registration successful! Your information has been stored locally.');
+  signupForm.reset();
+  window.location.href = 'index.html';
+});
 
 function scrollFunction() {
   // console.log(topBtn);
