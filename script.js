@@ -47,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (let i = 0; i < slides.length; i++) {
     // console.log(slides[i].getElementsByClassName('slide'));
-    gotoSlide(slides[i],slideNums[i]);
+    gotoSlide(slides[i], slideNums[i]);
+    slides[i].querySelector('.next')?.addEventListener('click', slideShowBtn);
+    slides[i].querySelector('.prev')?.addEventListener('click', slideShowBtn);
   }
 
   // For everything in agenda and agenda drop-down, make it a button to go to agenda page
@@ -147,6 +149,29 @@ function setTimer() {
 
 function slideShowBtn() {
   // gives the 'prev' and 'next' buttons in a slideshow actions
+
+  slideShow = this.parentNode;
+  theseSlides = slideShow.getElementsByClassName('slide');
+  
+  if (this.className == 'next') {
+    // what to do if they press next
+    if (slideNums[slideShow.id] < (theseSlides.length - 1)) {
+      // what if uhh next slide is bigger than slide limit
+      slideNums[slideShow.id]++;
+    } else {
+      slideNums[slideShow.id] = 0;
+    }
+  } else {
+    // what to do if they press prev
+    if (slideNums[slideShow.id] > 0) {
+      // what if uhh next slide is bigger than slide limit
+      slideNums[slideShow.id]--;
+    } else {
+      slideNums[slideShow.id] = (theseSlides.length - 1);
+    }
+  }
+  gotoSlide(slideShow, slideNums[slideShow.id]);
+  // console.log(slideNums);
 }
 
 function gotoSlide(slideShow, slide) {
