@@ -177,12 +177,17 @@ function slideShowBtn() {
 function gotoSlide(slideShow, slide) {
   // hides the slide if it's not the current slide
   var mySlides = slideShow.getElementsByClassName('slide');
+  var dots = slideShow.parentNode.getElementsByClassName('dot');
+  var slideId = null
   for (i = 0; i < mySlides.length; i++) {
     if (mySlides[i].id == slide) {
+      slideId = i;
       mySlides[i].style.display = 'block';
+      dots[i].style.opacity = '50%';
     }
     else {
       mySlides[i].style.display = 'none';
+      dots[i].style.opacity = '100%'
     }
   }
 }

@@ -233,6 +233,20 @@ body {
   text-align: right;
 }
 
+.slideDot {
+ text-align: center;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
 
 .scenario {
   background: #10131a;
