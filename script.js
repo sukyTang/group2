@@ -116,45 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (testimonyPopup) testimonyPopup.style.visibility = 'hidden';
   });
 
-  // Popup Test form submit: save quick feedback to localStorage
-  const popupTestForm = document.getElementById('popupTestForm');
-  popupTestForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    // Collect intake fields
-    const conflict = popupTestForm.querySelector('input[name="conflict"]:checked')?.value || null;
-    const affected = document.getElementById('affected')?.value || null;
-    const severity = document.getElementById('severity')?.value || null;
-    const impactText = document.getElementById('impactText')?.value.trim() || '';
-    const contactMe = popupTestForm.querySelector('input[name="contactMe"]:checked')?.value || 'no';
-    const contactMethod = document.getElementById('contactMethod')?.value || null;
-    const contactInfo = document.getElementById('contactInfo')?.value.trim() || null;
-
-    // Validate required fields
-    if (!conflict) { alert('Please indicate whether you are experiencing a conflict.'); return; }
-    if (contactMe === 'yes' && !contactInfo) { alert('Please provide contact info so we can reach you.'); return; }
-
-    const intake = JSON.parse(localStorage.getItem('clientIntake') || '[]');
-    const entry = { conflict, affected, severity, impactText, contactMe, contactMethod, contactInfo, timestamp: new Date().toISOString() };
-    intake.push(entry);
-    localStorage.setItem('clientIntake', JSON.stringify(intake));
-
-    // If user asked for contact or severity is high, display contact confirmation
-    if (contactMe === 'yes' || severity === 'high' || conflict === 'yes') {
-      alert('Thank you. Our team will review your submission and contact you shortly to discuss solutions.');
-    } else {
-      alert('Thank you. Your response has been recorded. If you change your mind, you can request contact later.');
-    }
-
-    // close popup and restore panels
-    popupDiv.style.visibility = 'hidden';
-    document.getElementsByTagName('body')[0].style.overflowY = 'visible';
-    const testPanel = document.getElementById('popupTestPanel');
-    const signupPanel = document.getElementById('popupSignup');
-    if (testPanel) testPanel.style.display = 'none';
-    if (signupPanel) signupPanel.style.display = 'block';
-    popupTestForm.reset();
-  });
-
   for (let i = 0; i < slides.length; i++) {
     // console.log(slides[i].getElementsByClassName('slide'));
     gotoSlide(slides[i], slideNums[i]);
@@ -292,7 +253,7 @@ function updateMobileNav(activeId) {
 }
 
 function setTimer() {
-  // Set the date we're counting down to
+  // Set the timer for a session
   var countDownDate = new Date();
 }
 
@@ -370,7 +331,6 @@ signupForm.addEventListener('submit', (e) => {
   document.getElementsByTagName('body')[0].style.overflowY = 'visible';
   alert('Registration successful! Your information has been stored locally.');
   signupForm.reset();
-  window.location.href = 'index.html';
 });
 
 function scrollFunction() {

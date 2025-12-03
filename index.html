@@ -35,87 +35,55 @@
         <input type="text" id="organization" name="organization" placeholder="Your Company">
       </div>
 
-                    <div class="form-group">
-                        <label for="session">Preferred Session</label>
-                        <select id="session" name="session">
-                            <option value="morning">Morning Session (9:00 AM - 11:00 AM)</option>
-                            <option value="afternoon">Afternoon Session (1:00 PM - 3:00 PM)</option>
-                        </select>
-                    </div>
+      <div class="form-group">
+        <label for="session">Preferred Session</label>
+        <select id="session" name="session">
+        <option value="morning">Morning Session (9:00 AM - 11:00 AM)</option>
+        <option value="afternoon">Afternoon Session (1:00 PM - 3:00 PM)</option>
+        </select>
+      </div>
 
-                    <div class="actions">
-                        <button type="submit" class="btn primary">Register Now</button>
-                        <button type="button" class="btn primary close-popup" id="exit">Cancel</button>
-                    </div>
-                </form>
+      <div class="actions">
+        <button type="submit" class="btn primary">Register Now</button>
+        <button type="button" class="btn primary close-popup" id="exit">Cancel</button>
+      </div>
+      </form>
     </div>
 
     <!-- Inline Popup Test panel (hidden by default) -->
     <div class="signup-container" id="popupTestPanel" style="display:none;">
-      <h2>Conflict Intake — Quick Screening</h2>
-      <p>Please answer a few quick questions so we can determine if our team should contact you to discuss solutions.</p>
+      <h2>Workshop Sign Up</h2>
+      <p>Join us for the Conflict Resolution Workshop for Multicultural Teams.</p>
 
-      <form id="popupTestForm">
-        <div class="form-group">
-          <label>Are you currently experiencing unresolved workplace conflict?</label>
-          <div style="display:flex;gap:1rem;align-items:center;">
-            <label><input type="radio" name="conflict" value="yes" required> Yes</label>
-            <label><input type="radio" name="conflict" value="no"> No</label>
-          </div>
-        </div>
+      <form id="signupForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Jane Doe">
+      </div>
 
-        <div class="form-group">
-          <label>Who is affected?</label>
-          <select id="affected" name="affected">
-            <option value="individual">Individual</option>
-            <option value="team">Team</option>
-            <option value="department">Department</option>
-            <option value="organization">Organization-wide</option>
-          </select>
-        </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="jane@example.com">
+      </div>
 
-        <div class="form-group">
-          <label>Severity / Impact on work</label>
-          <select id="severity" name="severity">
-            <option value="low">Low (minor disruption)</option>
-            <option value="moderate">Moderate (reduced productivity)</option>
-            <option value="high">High (blocking deadlines or retention risk)</option>
-          </select>
-        </div>
+      <div class="form-group">
+        <label for="organization">Organization / Company</label>
+        <input type="text" id="organization" name="organization" placeholder="Your Company">
+      </div>
 
-        <div class="form-group">
-          <label for="impactText">Briefly describe the impact (one or two sentences)</label>
-          <textarea id="impactText" name="impactText" rows="3" placeholder="E.g., recurring heated exchanges in meetings; people avoiding each other"></textarea>
-        </div>
+      <div class="form-group">
+        <label for="session">Preferred Session</label>
+        <select id="session" name="session">
+        <option value="morning">Morning Session (9:00 AM - 11:00 AM)</option>
+        <option value="afternoon">Afternoon Session (1:00 PM - 3:00 PM)</option>
+        </select>
+      </div>
 
-        <div class="form-group">
-          <label>Would you like our team to contact you to discuss solutions?</label>
-          <div style="display:flex;gap:1rem;align-items:center;">
-            <label><input type="radio" name="contactMe" value="yes" required> Yes, please contact me</label>
-            <label><input type="radio" name="contactMe" value="no"> Not at this time</label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="contactMethod">Preferred contact method</label>
-          <select id="contactMethod" name="contactMethod">
-            <option value="email">Email</option>
-            <option value="phone">Phone</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="contactInfo">Contact info (email or phone) — required if you asked us to contact you</label>
-          <input type="text" id="contactInfo" name="contactInfo" placeholder="you@example.com or +1-555-555-5555">
-        </div>
-
-        <div class="actions">
-          <button type="submit" class="btn primary">Request Contact</button>
-          <button type="button" class="btn secondary close-popup">Cancel</button>
-        </div>
+      <div class="actions">
+        <button type="submit" class="btn primary">Register Now</button>
+        <button type="button" class="btn primary close-popup" id="exit">Cancel</button>
+      </div>
       </form>
-
-      <p class="note">By requesting contact you agree we may reach out to discuss tailored solutions for your situation. Responses are stored locally in this demo.</p>
     </div>
   </div>
 </div>
@@ -196,8 +164,7 @@
               <li>Role‑play realistic workplace scenarios</li>
             </ul>
             <div class="hero-buttons">
-              <a class="btn primary" href="signup.html" id="startBtn">Sign-Up</a>
-              <a class="btn primary" id="popUP">Popup Test</a>
+              <a class="btn primary" id="popUP">Sign-Up</a>
             </div>
           </div>
           <div class="hero-image">
