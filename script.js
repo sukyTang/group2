@@ -22,6 +22,12 @@ const navigation = document.getElementsByClassName('page');
 const slides = document.getElementsByClassName('slideShow');
 var slideNums = [0,0,0,0,0];
 
+// Mobile navigation elements
+const mobileHome = document.getElementById('mobileHome');
+const mobileAgenda = document.getElementById('mobileAgenda');
+const mobileResources = document.getElementById('mobileResources');
+const mobileAbout = document.getElementById('mobileAbout');
+
 window.onscroll = function () {
   scrollFunction()
 };
@@ -189,6 +195,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Mobile navigation event listeners
+  mobileHome?.addEventListener('click', (e) => {
+    e.preventDefault();
+    goToPage('home');
+    updateMobileNav('mobileHome');
+  });
+
+  mobileAgenda?.addEventListener('click', (e) => {
+    e.preventDefault();
+    goToPage('agenda');
+    updateMobileNav('mobileAgenda');
+  });
+
+  mobileResources?.addEventListener('click', (e) => {
+    e.preventDefault();
+    goToPage('resources');
+    updateMobileNav('mobileResources');
+  });
+
+  mobileAbout?.addEventListener('click', (e) => {
+    e.preventDefault();
+    goToPage('about');
+    updateMobileNav('mobileAbout');
+  });
+
   // # quiz
   const quizForm = document.getElementById('quizForm');
   const quizResult = document.getElementById('quizResult');
@@ -244,6 +275,20 @@ function goToPage(page) {
       //console.log("hidden"+page);
     }
   }
+  
+  // Scroll to top when changing pages
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Update mobile nav active state
+function updateMobileNav(activeId) {
+  const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+  mobileNavItems.forEach(item => {
+    item.classList.remove('active');
+    if (item.id === activeId) {
+      item.classList.add('active');
+    }
+  });
 }
 
 function setTimer() {
