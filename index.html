@@ -15,7 +15,7 @@
 <body>
 <div id="popup">
   <div class="container">
-    <div class="signup-container">
+    <div class="signup-container" id="popupSignup">
       <h2>Workshop Sign Up</h2>
       <p>Join us for the Conflict Resolution Workshop for Multicultural Teams.</p>
 
@@ -45,9 +45,103 @@
 
                     <div class="actions">
                         <button type="submit" class="btn primary">Register Now</button>
-                        <button type="rest" class="btn primary" id="exit">Cancel</button>
+                        <button type="button" class="btn primary close-popup" id="exit">Cancel</button>
                     </div>
                 </form>
+    </div>
+
+    <!-- Inline Popup Test panel (hidden by default) -->
+    <div class="signup-container" id="popupTestPanel" style="display:none;">
+      <h2>Conflict Intake — Quick Screening</h2>
+      <p>Please answer a few quick questions so we can determine if our team should contact you to discuss solutions.</p>
+
+      <form id="popupTestForm">
+        <div class="form-group">
+          <label>Are you currently experiencing unresolved workplace conflict?</label>
+          <div style="display:flex;gap:1rem;align-items:center;">
+            <label><input type="radio" name="conflict" value="yes" required> Yes</label>
+            <label><input type="radio" name="conflict" value="no"> No</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Who is affected?</label>
+          <select id="affected" name="affected">
+            <option value="individual">Individual</option>
+            <option value="team">Team</option>
+            <option value="department">Department</option>
+            <option value="organization">Organization-wide</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Severity / Impact on work</label>
+          <select id="severity" name="severity">
+            <option value="low">Low (minor disruption)</option>
+            <option value="moderate">Moderate (reduced productivity)</option>
+            <option value="high">High (blocking deadlines or retention risk)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="impactText">Briefly describe the impact (one or two sentences)</label>
+          <textarea id="impactText" name="impactText" rows="3" placeholder="E.g., recurring heated exchanges in meetings; people avoiding each other"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Would you like our team to contact you to discuss solutions?</label>
+          <div style="display:flex;gap:1rem;align-items:center;">
+            <label><input type="radio" name="contactMe" value="yes" required> Yes, please contact me</label>
+            <label><input type="radio" name="contactMe" value="no"> Not at this time</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contactMethod">Preferred contact method</label>
+          <select id="contactMethod" name="contactMethod">
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="contactInfo">Contact info (email or phone) — required if you asked us to contact you</label>
+          <input type="text" id="contactInfo" name="contactInfo" placeholder="you@example.com or +1-555-555-5555">
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Request Contact</button>
+          <button type="button" class="btn secondary close-popup">Cancel</button>
+        </div>
+      </form>
+
+      <p class="note">By requesting contact you agree we may reach out to discuss tailored solutions for your situation. Responses are stored locally in this demo.</p>
+    </div>
+  </div>
+</div>
+<!-- Testimony popup (hidden) -->
+<div id="testimonyPopup" class="popup" style="visibility:hidden; z-index:25;">
+  <div class="container">
+    <div class="signup-container">
+      <h2>Share Your Testimony</h2>
+      <p>Your testimony helps others — it's optional and can be anonymous.</p>
+
+      <form id="testimonyForm">
+        <div class="form-group">
+          <label for="testName">Name (optional)</label>
+          <input type="text" id="testName" name="testName" placeholder="Your name or leave blank">
+        </div>
+
+        <div class="form-group">
+          <label for="testText">Testimony</label>
+          <textarea id="testText" name="testText" rows="5" required placeholder="Write your testimony..."></textarea>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Save Testimony</button>
+          <button type="button" class="btn primary" id="closeTestimony">Cancel</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -406,6 +500,51 @@
               <li><strong>Practice:</strong> Paraphrasing, I‑statements, ask‑before‑assume.</li>
             </ul>
           </details>
+        </div>
+      </section>
+
+      <section id="debrief" class="section">
+        <div class="container">
+          <h3>Debrief & Commitments</h3>
+          <p>Consolidate learning from role‑plays, surface actionable improvements, and record 1–3 clear commitments with owners and follow‑up dates.</p>
+
+          <h4>Facilitator prompts</h4>
+          <ul>
+            <li>What worked well in the role‑plays? Be specific about behaviors.</li>
+            <li>What surprised you or felt uncomfortable?</li>
+            <li>Which strategy will you try this week?</li>
+            <li>What follow‑up or additional practice do we need?</li>
+          </ul>
+
+          <h4>Quick Debrief Activities (15–20 min)</h4>
+          <ol>
+            <li><strong>Rapid Round (3 min):</strong> Each person shares one thing to keep and one thing to change.</li>
+            <li><strong>Praise + Probe (5–7 min):</strong> Two people give one praise and one constructive probe to a pair or the group.</li>
+            <li><strong>Action Board (5–8 min):</strong> Capture up to 3 concrete commitments with owner and date.</li>
+          </ol>
+
+          <h4>Commitment Template</h4>
+          <ul>
+            <li><strong>Commitment:</strong> Short action statement (e.g., “Ask clarifying questions before escalating.”)</li>
+            <li><strong>Owner:</strong> Person responsible</li>
+            <li><strong>When:</strong> Target date or timeframe</li>
+            <li><strong>Success measure:</strong> How we’ll know it worked</li>
+            <li><strong>Check‑in:</strong> Date for a short follow‑up (e.g., next meeting)</li>
+          </ul>
+
+          <h4>Example Commitments</h4>
+          <div class="grid two">
+            <div class="card">
+              <h4>Use a call‑in script</h4>
+              <p><strong>Owner:</strong> Alex<br><strong>When:</strong> Immediately<br><strong>Success:</strong> Fewer heated interruptions over 2 meetings<br><strong>Check‑in:</strong> 1 week</p>
+            </div>
+            <div class="card">
+              <h4>Share meeting notes within 24 hrs</h4>
+              <p><strong>Owner:</strong> Meeting facilitator (rotate)<br><strong>When:</strong> Next meeting<br><strong>Success:</strong> All attendees confirm actions before next meeting<br><strong>Check‑in:</strong> 2 weeks</p>
+            </div>
+          </div>
+
+          <p class="note">Closing: Confirm the top 1–2 commitments and add a 5‑minute follow‑up to the next meeting agenda. Assign an owner for tracking.</p>
         </div>
       </section>
 

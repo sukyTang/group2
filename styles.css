@@ -16,15 +16,27 @@ button {
   all: inherit;
 }
 
-#popup {
+#popup, .popup {
   visibility: hidden;
-  z-index: 20;
+  z-index: 1200;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
+  position: fixed;
   top: 0;
-  right:0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem; /* allow space for small screens */
+  overflow: auto; /* enable scrolling inside the overlay */
+}
+
+/* Ensure the popup content itself can scroll if it exceeds the viewport */
+#popup .signup-container,
+.popup .signup-container {
+  max-height: calc(100vh - 4rem);
+  overflow: auto;
 }
 
 html,
